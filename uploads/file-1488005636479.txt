@@ -1,0 +1,24 @@
+columnDefs: [
+            { field: 'id', visible: false },
+            { field: 'serial', displayName: 'SL', width: "4%", enableFiltering: false },
+            { field: 'deptName', displayName: 'Department', width: "8%" },
+            { field: 'branchName', displayName: 'Branch', width: "14%" },
+            { field: 'employee_name', displayName: 'Employee', width: "12%" },
+            { field: 'LetterType', displayName: 'Letter Type', width: "10%" },
+            { field: 'subject', displayName: "Subject", width: "8%" },
+            { field: 'addressTo', displayName: 'Address To', width: "12%" },
+            { field: 'remarks', displayName: 'Remarks', width: "12%" },
+            {
+                field: 'filePath',
+                displayName: 'File',
+                enableFiltering: false,
+                enableSorting: false,
+                width: '4%',
+                cellTemplate: '<div ng-show = {{row.entity.filePath}}><center><a class="glyphicon glyphicon-download custom-i" href={{row.entity.filePath}} /></center></div>'
+            },
+            { field: 'Reference', displayName: 'Ref Number', width: "14%" },
+            {
+                field: 'date', displayName: 'Date', type: 'date', cellFilter: 'date:"longDate"', width: "16%", enableFiltering: false
+            }
+
+            ]

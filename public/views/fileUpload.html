@@ -1,0 +1,10 @@
+
+
+	<form class="form form-horizontal" ng-controller="fileController as fc" name="fc.upload_form">
+		<div class="form-group">
+			<label>File name</label> <input type="text" class="form-control input input-sm" ng-model="fc.body.name">
+			<input type="file" ngf-select ng-model="fc.file" name="file" />
+		</div>
+			<button type="submit" class ="btn btn-success" ng-click="fc.submit()"> submit </button>
+		
+	</form>

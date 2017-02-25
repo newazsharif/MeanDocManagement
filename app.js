@@ -1,0 +1,68 @@
+/*var express = require('express');
+var app = express();
+var path = require('path');
+var bodyParser = require('body-parser')
+var routes = require('./api/route.js');
+
+
+app.use(function(req,res,next)
+	{
+		console.log(req.method,req.url);
+		next();
+	})
+app.use(express.static(path.join(__dirname,'public')));
+
+
+
+app.use('/node_modules',express.static(path.join(__dirname,'/node_modules')));
+app.use(bodyParser.urlencoded({"extended" : "false"}));
+
+app.use(bodyParser.json())
+
+app.use('/api',routes);
+app.listen(3000,function()
+{
+	console.log("app started on port 3000")
+})*/
+
+
+(function()
+{
+	
+	//some comment added for nodemon
+	require('./api/db.js')
+	var express = require('express');
+	var app = express();
+	var path  = require('path');
+	var bodyParser = require('body-parser');
+	var routes = require('./api/route.js');
+	
+	app.set('port',3000);
+
+	app.use(function(req,res,next)
+	{
+		console.log(req.method,req.url);
+		next();
+	})
+	app.use(express.static(path.join(__dirname,'public')));
+	app.use('/node_modules',express.static(path.join(__dirname,'/node_modules')));
+	
+	app.use(bodyParser.urlencoded({"extended" : "false"}));
+
+	app.use(bodyParser.json())
+	app.use('/api',routes);
+	
+	
+
+	
+	app.get('/file',function(req,res)
+	{
+		res.sendFile(path.join(__dirname,'/node_modules/angular/angular.js'));
+	})
+
+	app.listen(app.get('port'),function()
+		{
+			console.log("hello from port "+ app.get('port'));
+		});
+
+})();
